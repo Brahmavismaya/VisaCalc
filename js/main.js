@@ -118,3 +118,19 @@ const observer = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('anim-fade-up'); observer.unobserve(e.target); } });
 }, { threshold: 0.12 });
 document.querySelectorAll('.tool-card, .blog-card, .trust-item').forEach(el => observer.observe(el));
+
+// Back to Top
+const btt = document.createElement('button');
+btt.className = 'back-to-top';
+btt.innerHTML = '<span class="material-symbols-outlined">arrow_upward</span>';
+btt.ariaLabel = 'Back to top';
+document.body.appendChild(btt);
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 400) btt.classList.add('show');
+  else btt.classList.remove('show');
+});
+
+btt.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
