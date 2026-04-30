@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://visapoints.eu.org/sitemap.xml
