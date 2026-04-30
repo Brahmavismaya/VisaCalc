@@ -73,10 +73,9 @@ document.querySelectorAll('.js-share').forEach(btn => {
   });
 });
 
-// Print / PDF
-document.querySelectorAll('.js-print').forEach(btn => {
-  btn.addEventListener('click', () => window.print());
-});
+// PDF & Image export — handled by js/export.js (loaded on tool pages)
+// .js-print  → exportPDF()   (clean pop-up print window, no ads)
+// .js-image  → exportImage() (html2canvas PNG download)
 
 // Score history utility
 const ScoreHistory = {

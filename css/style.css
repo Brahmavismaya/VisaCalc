@@ -208,13 +208,16 @@ a:hover{text-decoration:underline}
 .history-item__score{font-weight:700;color:var(--navy)}
 .history-item__date{color:var(--text-muted)}
 
-/* PRINT */
+/* PRINT — used only as fallback; export.js handles PDF via a pop-up window */
 @media print{
+  /* Hide everything except the result */
   .nav, .footer, .ad-slot, .wizard-nav, .result-actions, .faq-item, .tips-card, .history-card,
-  .breadcrumb, .tool-hero__badges, .tool-hero p, .tools-grid, h2, .progress-bar, .btn {
+  .breadcrumb, .tool-hero__badges, .tool-hero p, .tools-grid, h2, .progress-bar, .btn,
+  [style*="Advertisement"], [aria-label="Advertisement"] {
     display: none !important;
   }
   body { background: #fff !important; color: #000 !important; padding: 0; margin: 0; }
+  @page { size: A4 portrait; margin: 18mm 16mm 20mm; }
   .tool-wrap { max-width: 100%; margin: 0; padding: 0; }
   .tool-hero { padding: 0; margin-bottom: 20px; background: none !important; clip-path: none; color: #000; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   .tool-hero::before { display: none !important; }
@@ -222,7 +225,7 @@ a:hover{text-decoration:underline}
   .result-card { border: 2px solid #ccc !important; background: #fff !important; page-break-inside: avoid; box-shadow: none; margin: 0; padding: 20px; color: #000; }
   .result-card__score, .result-card__label { color: #000 !important; }
   .breakdown-table { page-break-inside: avoid; width: 100%; }
-  .breakdown-table td, .breakdown-table th { color: #000 !important; }
+  .breakdown-table td, .breakdown-table th { color: #000 !important; border-color: #ddd !important; }
 }
 
 /* ANIMATIONS */
